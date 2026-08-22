@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Attendance MIS - Global Theme
+   A modern "SaaS admin dashboard" look: dark slate sidebar, indigo accent,
+   soft neutral background, Inter typeface, subtle card shadows.
+   ========================================================================== */
+
+:root {
+  --brand-indigo: #4f46e5;
+  --brand-indigo-dark: #4338ca;
+  --brand-indigo-light: #eef2ff;
+
+  --sidebar-bg: #111827;
+  --sidebar-bg-hover: #1f2937;
+  --sidebar-text: #9ca3af;
+  --sidebar-text-active: #ffffff;
+
+  --body-bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --border-soft: #e5e7eb;
+
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  --success: #059669;
+  --success-bg: #ecfdf5;
+  --danger: #e11d48;
+  --danger-bg: #fff1f2;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(17, 24, 39, 0.06);
+}
+
+* {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-main);
+}
+
+/* ---------- Layout shell ---------- */
+.mis-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.mis-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.mis-sidebar .brand {
+  padding: 1.5rem 1.25rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mis-sidebar .nav-section-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  padding: 1rem 1.25rem 0.4rem;
+  font-weight: 600;
+}
+
+.mis-sidebar .nav-link {
+  color: var(--sidebar-text);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mis-sidebar .nav-link:hover {
+  background: var(--sidebar-bg-hover);
+  color: #ffffff;
+}
+
+.mis-sidebar .nav-link.active {
+  background: var(--sidebar-bg-hover);
+  color: var(--sidebar-text-active);
+  border-left-color: var(--brand-indigo);
+}
+
+.mis-sidebar .nav-link i {
+  font-size: 1.05rem;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.mis-sidebar .sidebar-footer {
+  margin-top: auto;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mis-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mis-topbar {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 0.9rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mis-content {
+  padding: 1.75rem;
+  flex: 1;
+}
+
+/* ---------- Cards ---------- */
+.mis-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.stat-card {
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.stat-card .stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.stat-card .stat-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-card .stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ---------- Buttons ---------- */
+.btn-brand {
+  background: var(--brand-indigo);
+  border-color: var(--brand-indigo);
+  color: #fff;
+  font-weight: 600;
+}
+.btn-brand:hover {
+  background: var(--brand-indigo-dark);
+  border-color: var(--brand-indigo-dark);
+  color: #fff;
+}
+
+.btn-outline-brand {
+  color: var(--brand-indigo);
+  border-color: var(--brand-indigo);
+  font-weight: 600;
+}
+.btn-outline-brand:hover {
+  background: var(--brand-indigo);
+  color: #fff;
+}
+
+/* Present / Absent toggle buttons */
+.btn-status-present.active-status {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+.btn-status-present {
+  color: var(--success);
+  border-color: var(--success);
+  font-weight: 600;
+}
+.btn-status-absent.active-status {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+.btn-status-absent {
+  color: var(--danger);
+  border-color: var(--danger);
+  font-weight: 600;
+}
+
+/* ---------- Tables ---------- */
+.mis-table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border-soft);
+  font-weight: 700;
+  background: #fafafa;
+}
+
+.mis-table tbody tr:hover {
+  background: var(--brand-indigo-light);
+}
+
+/* ---------- Badges ---------- */
+.badge-role {
+  background: var(--brand-indigo-light);
+  color: var(--brand-indigo-dark);
+  font-weight: 600;
+  padding: 0.35em 0.7em;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+/* ---------- Auth pages ---------- */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #111827 0%, #312e81 100%);
+  padding: 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  padding: 2.25rem;
+}
+
+/* ---------- Misc ---------- */
+.text-brand {
+  color: var(--brand-indigo) !important;
+}
+.form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.mis-page-title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 0.15rem;
+}
+.mis-page-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .mis-sidebar {
+    position: fixed;
+    left: -260px;
+    z-index: 1050;
+    transition: left 0.2s ease;
+  }
+  .mis-sidebar.open {
+    left: 0;
+  }
+}
